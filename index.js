@@ -1,5 +1,3 @@
-'use strict';
-
 import * as acorn from "acorn";
 import XHTMLEntities from './xhtml';
 

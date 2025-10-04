@@ -1,5 +1,3 @@
-"use strict";
-
 import assert from "assert";
 import * as acorn from "acorn";
 import jsx from "../index.js";
