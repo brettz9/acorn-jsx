@@ -24,7 +24,8 @@
   "scripts": {
     "attw": "attw --pack",
     "test": "node test/run.js",
-    "prepublishOnly": "node constructor/build.js"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "acorn": "^6.0.0 || ^7.0.0 || ^8.0.0"
