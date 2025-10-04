@@ -72,7 +72,7 @@ function addPath(str, pt) {
   return str + " (" + pt + ")";
 }
 
-var misMatch = exports.misMatch = function(exp, act) {
+var misMatch = function(exp, act) {
   if (!exp || !act || (typeof exp != "object") || (typeof act != "object")) {
     if (exp !== act) return ppJSON(exp) + " !== " + ppJSON(act);
   } else if (exp instanceof RegExp || act instanceof RegExp) {
