@@ -1,5 +1,5 @@
 import * as acorn from "acorn";
-import XHTMLEntities from './xhtml';
+import XHTMLEntities from './xhtml.js';
 
 const hexNumber = /^[\da-fA-F]+$/;
 const decimalNumber = /^\d+$/;
