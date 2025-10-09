@@ -93,17 +93,17 @@ Object.defineProperty(acornJsx, "tokTypes", {
 export default acornJsx;
 
 function plugin(options, Parser) {
-  const acorn = Parser.acorn || acorn;
+  const acrn = Parser.acorn || acorn;
   const acornJsx = getJsxTokens(acorn);
-  const tt = acorn.tokTypes;
+  const tt = acrn.tokTypes;
   const tok = acornJsx.tokTypes;
-  const tokContexts = acorn.tokContexts;
+  const tokContexts = acrn.tokContexts;
   const tc_oTag = acornJsx.tokContexts.tc_oTag;
   const tc_cTag = acornJsx.tokContexts.tc_cTag;
   const tc_expr = acornJsx.tokContexts.tc_expr;
-  const isNewLine = acorn.isNewLine;
-  const isIdentifierStart = acorn.isIdentifierStart;
-  const isIdentifierChar = acorn.isIdentifierChar;
+  const isNewLine = acrn.isNewLine;
+  const isIdentifierStart = acrn.isIdentifierStart;
+  const isIdentifierChar = acrn.isIdentifierChar;
 
   return class extends Parser {
     // Expose actual `tokTypes` and `tokContexts` to other plugins.
