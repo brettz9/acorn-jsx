@@ -32,6 +32,18 @@ declare namespace jsx {
     allowNamespaces?: boolean;
   }
 
+  // As per https://github.com/acornjs/acorn/issues/1404 ,
+  //   acorn is not exporting all of its interface for plugin
+  //   authors, so we add this class here ourselves
+  class TokContext {
+    constructor(
+      token: string,
+      isExpr: boolean,
+      preserveSpace: boolean,
+      override?: (parser: any) => void
+    )
+  }
+
   interface TokContexts {
     tc_oTag: TokContext,
     tc_cTag: TokContext,
