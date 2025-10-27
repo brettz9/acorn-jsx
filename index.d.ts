@@ -1,5 +1,14 @@
 import * as acorn from 'acorn';
 
+declare class TokContext {
+  constructor(
+    token: string,
+    isExpr: boolean,
+    preserveSpace: boolean,
+    override?: (parser: any) => void
+  )
+}
+
 interface JsxTokTypes extends AcornTokTypes {
   jsxName: acorn.TokenType,
   jsxText: acorn.TokenType,
@@ -24,9 +33,9 @@ declare namespace jsx {
   }
 
   interface TokContexts {
-    tc_oTag: acorn.TokContext,
-    tc_cTag: acorn.TokContext,
-    tc_expr: acorn.TokContext
+    tc_oTag: TokContext,
+    tc_cTag: TokContext,
+    tc_expr: TokContext
   }
 
   // We pick (statics) from acorn rather than plain extending to avoid complaint
