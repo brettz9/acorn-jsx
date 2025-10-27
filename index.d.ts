@@ -16,14 +16,12 @@ interface JsxTokTypes extends AcornTokTypes {
   jsxTagStart: acorn.TokenType
 }
 
-declare const jsx: {
-  tokTypes: JsxTokTypes;
-  (options?: jsx.Options): (BaseParser: typeof acorn.Parser) => jsx.AcornJsxParserCtor
-}
-
 type AcornTokTypes = typeof acorn.tokTypes;
 
+declare function jsx(options?: jsx.Options): (BaseParser: typeof acorn.Parser) => jsx.AcornJsxParserCtor;
+
 declare namespace jsx {
+  const tokTypes: JsxTokTypes;
 
   type TokTypes = JsxTokTypes
 
