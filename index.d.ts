@@ -21,25 +21,11 @@ type AcornTokTypes = typeof acorn.tokTypes;
 declare function jsx(options?: jsx.Options): (BaseParser: typeof acorn.Parser) => jsx.AcornJsxParserCtor;
 
 declare namespace jsx {
-  const tokTypes: JsxTokTypes;
-
   type TokTypes = JsxTokTypes
 
   interface Options {
     allowNamespacedObjects?: boolean;
     allowNamespaces?: boolean;
-  }
-
-  // As per https://github.com/acornjs/acorn/issues/1404 ,
-  //   acorn is not exporting all of its interface for plugin
-  //   authors, so we add this class here ourselves
-  class TokContext {
-    constructor(
-      token: string,
-      isExpr: boolean,
-      preserveSpace: boolean,
-      override?: (parser: any) => void
-    )
   }
 
   interface TokContexts {
