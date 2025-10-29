@@ -1,6 +1,6 @@
 import * as acorn from 'acorn';
 
-declare class TokContext {
+export declare class TokContext {
   constructor(
     token: string,
     isExpr: boolean,
@@ -9,23 +9,23 @@ declare class TokContext {
   )
 }
 
-interface JsxTokTypes extends AcornTokTypes {
+export interface JsxTokTypes extends AcornTokTypes {
   jsxName: acorn.TokenType,
   jsxText: acorn.TokenType,
   jsxTagEnd: acorn.TokenType,
   jsxTagStart: acorn.TokenType
 }
 
-type AcornTokTypes = typeof acorn.tokTypes;
+export type AcornTokTypes = typeof acorn.tokTypes;
 
-type TokTypes = JsxTokTypes
+export type TokTypes = JsxTokTypes
 
-interface Options {
+export interface Options {
     allowNamespacedObjects?: boolean;
     allowNamespaces?: boolean;
 }
 
-interface TokContexts {
+export interface TokContexts {
     tc_oTag: TokContext,
     tc_cTag: TokContext,
     tc_expr: TokContext
@@ -34,7 +34,7 @@ interface TokContexts {
 // We pick (statics) from acorn rather than plain extending to avoid complaint
 //   about base constructors needing the same return type (i.e., we return
 //   `AcornJsxParser` here)
-interface AcornJsxParserCtor extends Pick<typeof acorn.Parser, keyof typeof acorn.Parser> {
+export interface AcornJsxParserCtor extends Pick<typeof acorn.Parser, keyof typeof acorn.Parser> {
     readonly acornJsx: {
         tokTypes: TokTypes;
         tokContexts: TokContexts
@@ -43,7 +43,7 @@ interface AcornJsxParserCtor extends Pick<typeof acorn.Parser, keyof typeof acor
     new (options: acorn.Options, input: string, startPos?: number): AcornJsxParser;
 }
 
-interface AcornJsxParser extends acorn.Parser {
+export interface AcornJsxParser extends acorn.Parser {
     jsx_readToken(): string;
     jsx_readNewLine(normalizeCRLF: boolean): void;
     jsx_readString(quote: number): void;
