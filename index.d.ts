@@ -63,4 +63,14 @@ export interface AcornJsxParser extends acorn.Parser {
     jsx_parseElement(): acorn.Node;
 }
 
-export default function jsx(options?: Options): (BaseParser: typeof acorn.Parser) => AcornJsxParserCtor;
+export interface JsxFunctionProperties {
+  tokTypes: JsxTokTypes;
+}
+
+export type JsxFunctionSignature = (options?: Options) => (BaseParser: typeof acorn.Parser) => AcornJsxParserCtor
+
+export type JsxFunction = JsxFunctionSignature & JsxFunctionProperties;
+
+declare const jsx: JsxFunction;
+
+export default jsx;
